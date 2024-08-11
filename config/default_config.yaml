@@ -1,0 +1,31 @@
+# default_config.yaml
+
+project:
+  name: "RAG-based Financial Risk Assessment Tool"
+  version: "1.0.0"
+
+data:
+  source: "kaggle"
+  dataset_path: "/app/data/raw/financials.csv"
+  batch_size: 32
+  max_length: 512
+
+model:
+  type: "transformer"
+  name: "gpt-3.5-turbo"
+  retriever_model: "sentence-transformers/all-MiniLM-L6-v2"
+  generator_model: "gpt-3.5-turbo"
+  device: "cuda"  # or "cpu" if no GPU is available
+
+training:
+  epochs: 5
+  learning_rate: 1e-4
+  weight_decay: 0.01
+
+output:
+  save_dir: "/app/output/"
+  save_model: true
+
+environment:
+  use_cuda: true
+  seed: 42

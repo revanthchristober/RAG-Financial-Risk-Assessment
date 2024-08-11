@@ -1,0 +1,25 @@
+# pipeline_config.yaml
+
+pipeline:
+  retriever:
+    model_name: "sentence-transformers/all-MiniLM-L6-v2"
+    embedding_dimension: 384
+    max_passages: 5
+    search_k: 50
+
+  generator:
+    model_name: "gpt-3.5-turbo"
+    temperature: 0.7
+    top_p: 0.9
+    max_tokens: 150
+
+  post_processing:
+    min_confidence: 0.6
+    remove_stopwords: true
+    keyword_extraction: true
+
+  pipeline_settings:
+    use_faiss: false
+    faiss_index_path: null
+    use_knowledge_base: false
+    knowledge_base_path: null
